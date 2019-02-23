@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="character"
+            type="jp.mototakatsu.danddinitiative.CharacterModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_initiative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:textSize="@dimen/text_headline_4"
+                android:text="@{String.format(@string/format_initiative, character.initiative)}"
+                tools:text="20.0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:textSize="@dimen/text_body_1"
+                android:text="@{character.name}"
+                tools:text="コボルドA"
+                app:layout_constraintStart_toEndOf="@id/text_initiative"
+                app:layout_constraintTop_toTopOf="@id/text_initiative" />
+
+            <TextView
+                android:id="@+id/text_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:textSize="@dimen/text_body_1"
+                android:text="@{character.note}"
+                tools:text="重傷:12"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+            <TextView
+                android:id="@+id/text_damage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:textSize="@dimen/text_headline_4"
+                android:text="@{String.format(@string/format_damage, character.damage)}"
+                tools:text="20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

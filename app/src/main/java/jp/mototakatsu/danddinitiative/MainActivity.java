@@ -5,26 +5,34 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import jp.mototakatsu.danddinitiative.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private CharacterAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setSupportActionBar(binding.toolbar);
 
+        adapter = new CharacterAdapter(new ArrayList<CharacterModel>());
+        binding.contentmain.characterRecyclerView.setAdapter(adapter);
+        binding.contentmain.characterRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // TODO:
+                CharacterModel characterModel = new CharacterModel("コボルドD", 10.0, 0, "");
+                adapter.addCharacter(characterModel);
             }
         });
     }
