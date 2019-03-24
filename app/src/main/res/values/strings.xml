@@ -3,4 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="format_initiative">%.1f</string>
     <string name="format_damage">%d</string>
+    <string name="character_name">Character Name</string>
+    <string name="initiative">Initiative</string>
+    <string name="damage">Damage</string>
+    <string name="note">Note</string>
+    <string name="save">Save</string>
 </resources>

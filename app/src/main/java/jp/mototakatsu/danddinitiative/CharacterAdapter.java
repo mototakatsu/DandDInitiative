@@ -43,6 +43,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         notifyDataSetChanged();
     }
 
+    public void setCharacter(int position, CharacterModel characterModel) {
+        if(position < getItemCount()) {
+            dataList.set(position, characterModel);
+        }
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         ItemCharacterBinding binding;
 
